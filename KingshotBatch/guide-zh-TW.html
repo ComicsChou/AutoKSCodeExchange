@@ -1,0 +1,70 @@
+<!doctype html><html lang="zh-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>KINGSHOT — 使用說明</title><link rel="stylesheet" href="guide.css"></head><body><nav><a href="app.html">← 返回工具</a><div><a href="guide-zh-TW.html" lang="zh-Hant">繁體中文</a><a href="guide-en.html" lang="en">English</a><a href="guide-de.html" lang="de">Deutsch</a></div></nav><main><h1>KINGSHOT 批次兌換助手</h1>
+<p>Windows 上的 Edge／Chrome 本機擴充功能，支援繁體中文、英文與德文介面。無須 Python、Node.js 或伺服器。這是獨立工具，並非遊戲官方產品。</p>
+<h2>第一次啟用</h2>
+<ol>
+<li>將 <code>KingshotBatch.zip</code> 解壓縮，保留整個 <code>KingshotBatch</code> 資料夾。</li>
+<li>Edge 網址列輸入 <code>edge://extensions</code>；Chrome 輸入 <code>chrome://extensions</code>。</li>
+<li>開啟「開發人員模式」，按「載入解壓縮」。</li>
+<li>選擇內含 <code>manifest.json</code> 的 <code>KingshotBatch</code> 資料夾。</li>
+<li>點擊瀏覽器右上角擴充功能清單中的「KINGSHOT 批次兌換助手」，開啟操作介面。可釘選方便下次使用。</li>
+</ol>
+<p>雙擊 app.html 只會顯示安裝指引；正式操作請從瀏覽器擴充功能圖示開啟。若瀏覽器由公司管理而禁止安裝，需依管理規定處理。</p>
+<h2>更新到 1.2.0</h2>
+<p>先按「備份資料」，將新版 ZIP 解壓縮並覆蓋原本載入的 <strong>同一個 KingshotBatch 資料夾</strong>，再到 <code>chrome://extensions</code> 或 <code>edge://extensions</code>，按此擴充功能卡片的重新載入按鈕。重新開啟工具分頁。<strong>不要移除再安裝</strong>，保留同一擴充功能與瀏覽器設定檔才能保留角色及紀錄。</p>
+<p>此版新增讀取 <code>https://kingshotoptimizer.com/</code> 的權限，用來取得指定來源的最新清單；若瀏覽器提示新增的網站存取權，依提示啟用。角色資料不會傳送到此來源網站。</p>
+<h3>出現 file://、origin null 或 CORS 錯誤</h3>
+<p>表示直接開啟了舊版 app.html，尚未載入擴充功能。按照上面的五個步驟操作即可，不必更改瀏覽器安全設定或安裝 CORS 外掛。1.0.1 版已加入本機檔案啟動指引，不會在 file:// 下嘗試載入 JavaScript 模組。</p>
+<h2>每次使用</h2>
+<ol>
+<li>按「新增角色」，填入 <strong>角色 ID、王國</strong>；可加暱稱辨識主城與小號。</li>
+<li>勾選要兌換的角色。</li>
+<li>工具會自動取得 Kingshot Optimizer 的有效碼清單。選擇間隔（最低 <strong>10 秒</strong>，另有 15、30、60、120、300 秒；預設 30 秒）。</li>
+<li>按「批次兌換未使用的有效碼」，或自行填入單一碼後按「兌換手動輸入的碼」。工具將開啟自己的官方兌換分頁，逐一填入並送出。</li>
+<li>在「兌換進度」查看結果。執行期間保持瀏覽器開啟，勿在工具的官方分頁切換角色或輸入其他碼。</li>
+</ol>
+<h2>自動取得、已載入紀錄與排除</h2>
+<ul>
+<li>開啟工具時及每小時自動讀取 <a href="https://kingshotoptimizer.com/gift-codes/">Kingshot Optimizer</a>；可按「更新清單」立即讀取。自動更新只取得清單，兌換仍由你按批次按鈕開始。</li>
+<li>讀取網站載入後的 <strong>Active codes</strong> 區塊，依新增日期由新到舊排列；不使用靜態 HTML 的舊清單。更新時會短暫開啟背景來源分頁，完成後關閉。</li>
+<li>每次載入的碼都永久保存在「已載入兌換碼紀錄」，記錄首次載入、最後出現時間及狀態；重新開啟工具仍保留。</li>
+<li><strong>Expired codes</strong> 區塊中的碼不會加入兌換；以前載入但已移出有效清單的碼也會排除，紀錄仍保留。</li>
+<li>已使用以「角色 ID＋王國＋兌換碼」分別記錄。所有勾選角色都成功或已兌換的碼會排除；只有部分角色用過，就只送出未使用的組合。新增角色仍可領取同一個有效碼。</li>
+<li>若官方回覆某碼已過期，記錄結果並直接略過該碼剩餘角色；後續批次也會排除。</li>
+<li>網站清單更新失敗會保留舊紀錄、顯示錯誤並停用最新碼批次按鈕，避免把過時清單當最新資料。網站列為有效不代表官方保證可領，實際狀態以官方回覆為準。</li>
+<li>10 秒是每筆完成後的等待時間。頁面載入及官方回覆需要額外時間；瀏覽器休眠、背景工作暫停或節流時可能延後，不保證精準每 10 秒送出。</li>
+</ul>
+<h2>結果與略過</h2>
+<ul>
+<li>只有新出現、明確的成功訊息才會記為成功，不會把頁面固定的「兌換成功後，獎勵將自動發送…」提示誤判為成功。</li>
+<li>已成功／已兌換的「角色 ID＋王國＋兌換碼」會略過並記錄，不再自動送出。官方回覆「已兌換／已使用／已領取」時，<strong>直接記錄並繼續下一筆，不需人工確認</strong>。</li>
+<li>回覆文字尚未支援、驗證碼、頻率限制、網路逾時、關閉分頁或中斷時，標記「結果未明・已略過」，記錄原始回覆後繼續下一筆。<strong>逾時不代表失敗；可能已領取。</strong></li>
+<li>「停止批次」停止後續項目；已送出的請求無法撤回。若正在等待回覆，會先處理這一筆。</li>
+<li>背景程式中斷後，處理中的項目會記錄為結果未明並略過，不自動重送。未送出的佇列可能在瀏覽器重新開啟後繼續執行；不想繼續時請按停止。</li>
+<li>官方頁面請保持繁體中文。目前以 2026-09-28 實際觀察的欄位結構實作；網站改版時可能需要更新 <code>adapter.js</code>。</li>
+</ul>
+<h2>本機資料</h2>
+<p>角色、已載入碼清單、批次進度及歷史紀錄存放在此瀏覽器設定檔的 <code>chrome.storage.local</code>，不傳到私人伺服器。只有兌換時的 ID、王國、兌換碼送到 <code>https://ks-giftcode.centurygame.com/</code>。不需要遊戲密碼。</p>
+<p>「備份資料」下載包含角色與歷史的 JSON。「匯入角色」只合併角色，相同 ID＋王國不覆寫，<strong>不還原歷史或未完成批次</strong>。歷史表顯示最近 200 筆，完整紀錄包含在備份中。移除擴充功能、清除其儲存空間或換瀏覽器設定檔可能失去資料；先備份。匯入角色到新設定檔後，不會有原設定檔的成功略過紀錄。</p>
+<p>可匯入以下 JSON（請替換成自己的資料）：</p>
+<pre><code>
+[{&quot;name&quot;:&quot;主城&quot;,&quot;id&quot;:&quot;123456789&quot;,&quot;kingdom&quot;:&quot;123&quot;,&quot;enabled&quot;:true}]
+
+</code></pre>
+<h2>權限與限制</h2>
+<p>只要求本機儲存、背景排程，以及在指定官方網站填表與指定來源網站讀取清單的權限。無遠端程式碼或第三方統計。系統睡眠與瀏覽器節流可能延後排程；工具不會喚醒電腦。</p>
+<p>已以本機模擬驗證角色資料檢查、結果分類、佇列、停止、恢復及重複防護。<strong>尚未使用真實角色與有效兌換碼驗證完整領獎流程，也未完成正式瀏覽器擴充功能載入測試</strong>。第一次建議只勾選一位角色，再核對遊戲信箱。</p>
+<h2>原始碼</h2>
+<ul>
+<li><code>app.html</code> / <code>style.css</code> / <code>app.js</code>：操作介面。</li>
+<li><code>core.js</code>：資料驗證與兌換紀錄。</li>
+<li><code>adapter.js</code>：依官方頁面欄位填入、點擊並擷取新回覆。</li>
+<li><code>background.js</code>：持久化佇列及中斷恢復。</li>
+<li><code>source.js</code>：有效碼擷取、已載入紀錄與角色使用狀態過濾。</li>
+</ul>
+<p>開發者如已安裝 Node.js，可在此資料夾執行 <code>node --test tests/test.mjs</code> 重跑測試；一般使用不需要 Node.js。測試使用本機模擬，不送出官方兌換請求。</p>
+<p>參考：<a href="https://ks-giftcode.centurygame.com/">官方兌換中心</a>、<a href="https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world">Chrome 載入本機擴充功能</a>、<a href="https://developer.chrome.com/docs/extensions/reference/api/alarms">背景排程</a>。</p>
+<p>1.1.1 已移除人工確認面板、結果選單及繼續按鈕。舊版暫停批次會略過結果未明的項目，繼續尚未送出的項目。結果未明不代表成功；只保留紀錄，不重送。</p>
+<h2>多國語言與說明</h2>
+<p>右上角可切換繁體中文、English、Deutsch，選擇會儲存在本機並沿用。日期格式跟隨語言，角色、兌換碼、原始紀錄和正在執行的批次不變。按「使用說明」開啟對應的離線說明。</p>
+<p>工具語言與官方網站語言分開；目前官方表單仍須設為繁體中文（繁體中文選項顯示為「繁體中文」）。官方原始回覆及瀏覽器診斷內容可能保留原文。</p>
+<p><a href="README.en.md">English guide</a> · <a href="README.de.md">Deutsche Anleitung</a></p></main><footer class="guide-support"><a href="mailto:ximoc001@gmail.com">問題回報： ximoc001@gmail.com</a></footer><script src="languages.js"></script><script src="guide.js"></script></body></html>

@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>KINGSHOT — User guide</title><link rel="stylesheet" href="guide.css"></head><body><nav><a href="app.html">← Back to tool</a><div><a href="guide-zh-TW.html" lang="zh-Hant">繁體中文</a><a href="guide-en.html" lang="en">English</a><a href="guide-de.html" lang="de">Deutsch</a></div></nav><main><h1>KINGSHOT Batch Redemption Helper — User Guide</h1>
+<p>Version 1.2.0. A local Chrome / Microsoft Edge extension for Windows. Available in English, German and Traditional Chinese. No Python, Node.js or server is needed for normal use. This is an independent tool, not an official KINGSHOT product.</p>
+<h2>Install</h2>
+<ol>
+<li>Extract KingshotBatch.zip and keep the entire KingshotBatch folder.</li>
+<li>In Chrome, enter chrome://extensions in the address bar. In Edge, enter edge://extensions.</li>
+<li>Enable Developer mode, then click Load unpacked.</li>
+<li>Select the folder containing manifest.json. Do not select the ZIP file or app.html.</li>
+<li>Open the browser extensions menu and click KINGSHOT. Pin it if you want easy access.</li>
+</ol>
+<p>Opening app.html directly only displays the installation guide. Normal operation requires the extension. If your organization blocks extensions, follow its administration rules.</p>
+<h2>Update without losing records</h2>
+<p>Use Back up data first. Extract the new files over the <strong>same folder</strong> you originally loaded. Open the browser extensions page, click Reload on the KINGSHOT extension card, and reopen the tool tab. <strong>Do not remove and reinstall the extension.</strong> Keep the same browser profile and extension to retain your characters and history.</p>
+<p>If updating from a version before 1.1.0, the browser may request access to kingshotoptimizer.com for the code list. No character data is sent to that source website.</p>
+<h2>Language and help</h2>
+<p>Use the selector in the upper-right corner: English, Deutsch or 繁體中文. The choice is stored locally and reused when you reopen the tool. It does not modify characters, codes, redemption records or an active batch. Dates use the selected language&#x27;s format. User guide opens the matching offline guide.</p>
+<p>The interface language is separate from the <strong>official redemption website</strong>. The current form adapter requires the official site to be set to Traditional Chinese (繁體中文). Changing this tool to English or German does not change that site. Original website replies and browser diagnostic details may remain in their original language; status labels and tool messages are localized.</p>
+<h2>Redeem codes</h2>
+<ol>
+<li>Click Add character. Enter the Player ID and Kingdom. A nickname is optional. The game avatar opens the governor profile where you can find these values.</li>
+<li>Select the characters you want to use.</li>
+<li>Wait for the latest code list, or click Refresh list. You can also type a single code manually. Preserve its capitalization.</li>
+<li>Choose a delay: 10, 15, 30, 60, 120 or 300 seconds. The default is 30 seconds.</li>
+<li>Click Redeem unused active codes, or Redeem entered code for the manual field.</li>
+<li>Watch Redemption progress and History. Keep the browser open. Do not edit the tool&#x27;s official redemption tab while the batch is running.</li>
+</ol>
+<p>The delay starts after each item finishes. Page loading and response time are additional. Browser suspension, throttling or computer sleep can delay execution. The tool does not wake your computer.</p>
+<h2>Automatic code list and saved code history</h2>
+<p>The extension reads <a href="https://kingshotoptimizer.com/gift-codes/">Kingshot Optimizer</a> when you open the tool and every hour. It briefly opens a background source tab and closes it afterward. Refreshing loads codes only; <strong>you start redemption with the batch button</strong>.</p>
+<p>Only the rendered Active codes section is used, ordered by the date added. The static page can contain an older list. Loaded code history retains each loaded code, first-loaded time, last-seen time and status across restarts.</p>
+<ul>
+<li>Codes in Expired codes are excluded. Previously loaded codes removed from the active list remain in history but are excluded.</li>
+<li>Usage is tracked per Player ID + Kingdom + Gift code. A code used by the main character can still be redeemed for an unused alternate character.</li>
+<li>Codes already used by every selected character are excluded. In mixed batches, completed character/code pairs are skipped and logged.</li>
+<li>If the official site reports an expired code, remaining characters for that code are skipped. Later batches also exclude it.</li>
+<li>If the source refresh fails, earlier records remain, but the latest-code batch button is disabled until a successful refresh. The source list does not guarantee that the official site will accept every code.</li>
+</ul>
+<h2>Results, skipping and stopping</h2>
+<p>Only a clear new success message is recorded as success. The permanent page hint about reward delivery is not a success result.</p>
+<p>Already redeemed / already claimed / already used responses are logged and skipped automatically. Verification challenges, rate limits, unknown replies, timeouts and interrupted attempts are logged as <strong>Unknown result · Skipped</strong>, then the batch continues. <strong>There is no manual confirmation panel.</strong> Challenges are not solved automatically.</p>
+<p>An unknown result does not mean success or failure; the request may already have been submitted. Unknown attempts are not automatically resubmitted, including in later batches. Their original records remain available.</p>
+<p>Stop batch prevents later items from starting. Requests already sent cannot be recalled. If a request is in progress, its result is recorded first. After a browser/background restart, a potentially submitted item is skipped; remaining unsent items can resume. Old paused batches are migrated to this behavior.</p>
+<h2>Data, backup and import</h2>
+<p>Characters, loaded codes, progress and redemption history are stored in chrome.storage.local for this browser profile. Language is stored locally too. The tool sends Player ID, Kingdom and Gift code only to <a href="https://ks-giftcode.centurygame.com/">the official redemption center</a>. No game password is needed. No private backend or translation service is used.</p>
+<p>Back up data downloads a JSON file containing characters, code records and redemption history. Import characters <strong>only merges characters</strong>: existing ID/Kingdom pairs are kept, and history or unfinished batches are not restored. The history table shows the latest 200 entries; the backup includes the complete history.</p>
+<p>Removing the extension, clearing its storage or switching browser profiles can lose records. Importing only characters into a fresh profile will not restore the earlier automatic skip history. Keep the original extension installation when updating.</p>
+<p>Example character import file — replace the sample values:</p>
+<pre><code>
+[{&quot;name&quot;:&quot;Main&quot;,&quot;id&quot;:&quot;123456789&quot;,&quot;kingdom&quot;:&quot;123&quot;,&quot;enabled&quot;:true}]
+
+</code></pre>
+<h2>Troubleshooting and limitations</h2>
+<ul>
+<li>A file:// / origin null / CORS error from an older version means app.html was opened directly. Load the extension instead. Do not disable browser security.</li>
+<li>If the source cannot be read, check its page and refresh later. The source may have changed or require verification.</li>
+<li>If the official form cannot be found, set that website to 繁體中文. A site redesign may require an updated adapter.js.</li>
+<li>Reload the extension and reopen its tool tab after replacing files, so you are not using an older interface.</li>
+</ul>
+<p>The extension requests local storage, scheduling, and script access to the two specified websites. Local simulations and interface checks have been run. <strong>Actual reward delivery with a real character and valid code, and a full installed-extension end-to-end run, have not been verified.</strong> Try one character first and check the in-game mailbox.</p>
+<h2>Developer files</h2>
+<p>app.html / app.js / style.css provide the interface. languages.js contains local translations. core.js handles validation and records, background.js runs the queue, adapter.js operates the official form, and source.js reads and filters source codes. The _locales folder localizes the browser&#x27;s extension listing.</p>
+<p>Developers with Node.js can run <code>node --test tests/*.mjs</code> from this folder. Tests use local fixtures and do not submit real redemptions.</p></main><footer class="guide-support"><a href="mailto:ximoc001@gmail.com">Report an issue: ximoc001@gmail.com</a></footer><script src="languages.js"></script><script src="guide.js"></script></body></html>

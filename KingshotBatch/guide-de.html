@@ -1,0 +1,62 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>KINGSHOT — Anleitung</title><link rel="stylesheet" href="guide.css"></head><body><nav><a href="app.html">← Zurück zum Tool</a><div><a href="guide-zh-TW.html" lang="zh-Hant">繁體中文</a><a href="guide-en.html" lang="en">English</a><a href="guide-de.html" lang="de">Deutsch</a></div></nav><main><h1>KINGSHOT – Sammeleinlösungen: Anleitung</h1>
+<p>Version 1.2.0. Eine lokale Erweiterung für Chrome / Microsoft Edge unter Windows. Verfügbar auf Deutsch, Englisch und Traditionellem Chinesisch. Für die normale Nutzung sind weder Python noch Node.js oder ein Server nötig. Dies ist ein unabhängiges Tool und kein offizielles KINGSHOT-Produkt.</p>
+<h2>Installation</h2>
+<ol>
+<li>Entpacke KingshotBatch.zip und behalte den gesamten Ordner KingshotBatch.</li>
+<li>Gib in Chrome chrome://extensions in die Adressleiste ein. Verwende in Edge edge://extensions.</li>
+<li>Aktiviere den Entwicklermodus und klicke auf Entpackte Erweiterung laden.</li>
+<li>Wähle den Ordner mit manifest.json. Wähle nicht die ZIP-Datei oder app.html.</li>
+<li>Öffne das Erweiterungsmenü des Browsers und klicke auf KINGSHOT. Du kannst die Erweiterung für einen schnelleren Zugriff anheften.</li>
+</ol>
+<p>Beim direkten Öffnen von app.html erscheint nur die Installationsanleitung. Für die eigentliche Nutzung muss die Erweiterung geladen sein. Falls deine Organisation Erweiterungen sperrt, beachte ihre Verwaltungsvorgaben.</p>
+<h2>Aktualisieren, ohne Daten zu verlieren</h2>
+<p>Klicke zuerst auf Daten sichern. Überschreibe mit den entpackten neuen Dateien <strong>denselben Ordner</strong>, den du ursprünglich geladen hast. Öffne die Erweiterungsseite des Browsers, klicke bei KINGSHOT auf Neu laden und öffne den Tool-Tab erneut. <strong>Entferne die Erweiterung nicht, um sie neu zu installieren.</strong> Nur mit derselben Erweiterung und demselben Browserprofil bleiben Charaktere und Verlauf erhalten.</p>
+<p>Beim Aktualisieren von einer Version vor 1.1.0 kann der Browser den Zugriff auf kingshotoptimizer.com für die Codeliste anfordern. Charakterdaten werden nicht an diese Quellwebsite gesendet.</p>
+<h2>Sprache und Hilfe</h2>
+<p>Wähle oben rechts Deutsch, English oder 繁體中文. Die Auswahl wird lokal gespeichert und beim nächsten Öffnen wieder verwendet. Charaktere, Codes, Einlöseverlauf und laufende Stapel werden dadurch nicht verändert. Datumsangaben verwenden das Format der ausgewählten Sprache. Anleitung öffnet die passende, auch offline lesbare Anleitung.</p>
+<p>Die Sprache des Tools ist unabhängig von der <strong>offiziellen Einlösewebsite</strong>. Der aktuelle Formularadapter benötigt dort Traditionelles Chinesisch (繁體中文). Die Auswahl Deutsch oder Englisch im Tool ändert die offizielle Website nicht. Originalantworten der Website und technische Browserdetails können in ihrer ursprünglichen Sprache bleiben; Statusanzeigen und Tool-Meldungen sind übersetzt.</p>
+<h2>Codes einlösen</h2>
+<ol>
+<li>Klicke auf Charakter hinzufügen. Trage die Spieler-ID und das Königreich ein. Ein Charaktername ist optional. Über den Avatar im Spiel erreichst du das Statthalterprofil mit diesen Angaben.</li>
+<li>Wähle die gewünschten Charaktere aus.</li>
+<li>Warte auf die aktuelle Codeliste oder klicke auf Liste aktualisieren. Alternativ kannst du einen einzelnen Code manuell eingeben. Beachte die Groß- und Kleinschreibung.</li>
+<li>Wähle eine Wartezeit: 10, 15, 30, 60, 120 oder 300 Sekunden. Voreingestellt sind 30 Sekunden.</li>
+<li>Klicke auf Ungenutzte aktive Codes einlösen oder für das manuelle Eingabefeld auf Eingegebenen Code einlösen.</li>
+<li>Verfolge die Ergebnisse unter Einlösefortschritt und Verlauf. Lass den Browser geöffnet. Bearbeite während der Ausführung nicht den offiziellen Einlöse-Tab des Tools.</li>
+</ol>
+<p>Die Wartezeit beginnt nach Abschluss eines Eintrags. Lade- und Antwortzeiten kommen hinzu. Browserpausen, Drosselung oder der Ruhezustand des Computers können die Ausführung verzögern. Das Tool weckt den Computer nicht auf.</p>
+<h2>Automatische Codeliste und gespeicherter Verlauf</h2>
+<p>Die Erweiterung liest <a href="https://kingshotoptimizer.com/gift-codes/">Kingshot Optimizer</a> beim Öffnen und anschließend stündlich. Dazu öffnet sie kurz einen Hintergrund-Tab und schließt ihn danach. Die Aktualisierung lädt nur Codes; <strong>die Einlösung startest du über die Stapel-Schaltfläche</strong>.</p>
+<p>Es wird ausschließlich der nach dem Laden angezeigte Bereich Active codes verwendet, sortiert nach dem Hinzufügungsdatum. Der statische Seiteninhalt kann veraltet sein. Im Verlauf geladener Codes bleiben jeder geladene Code, der erste Ladezeitpunkt, das letzte Auftreten und der Status auch nach einem Neustart gespeichert.</p>
+<ul>
+<li>Codes unter Expired codes sind ausgeschlossen. Früher geladene Codes, die nicht mehr in der aktiven Liste stehen, bleiben im Verlauf, werden aber ausgeschlossen.</li>
+<li>Die Nutzung wird pro Spieler-ID + Königreich + Geschenkcode gespeichert. Ein vom Hauptcharakter verwendeter Code kann weiterhin für einen anderen Charakter ungenutzt sein.</li>
+<li>Codes, die alle ausgewählten Charaktere bereits verwendet haben, werden ausgeschlossen. Bereits abgeschlossene Kombinationen aus Charakter und Code werden übersprungen und protokolliert.</li>
+<li>Meldet die offizielle Website einen Code als abgelaufen, werden dessen verbleibende Charaktere übersprungen. Auch spätere Stapel schließen ihn aus.</li>
+<li>Schlägt die Quellenaktualisierung fehl, bleiben frühere Daten erhalten. Die Schaltfläche für aktuelle Codes ist bis zur erfolgreichen Aktualisierung deaktiviert. Die Quellenliste garantiert nicht, dass die offizielle Website jeden Code akzeptiert.</li>
+</ul>
+<h2>Ergebnisse, Überspringen und Stoppen</h2>
+<p>Nur eine eindeutige neue Erfolgsmeldung zählt als Erfolg. Der dauerhafte Hinweis der Website zum Versand der Belohnungen ist keine Erfolgsmeldung.</p>
+<p>Antworten wie bereits eingelöst / bereits abgeholt / bereits verwendet werden automatisch protokolliert und übersprungen. Verifizierungsaufgaben, Ratenbegrenzungen, unbekannte Antworten, Zeitüberschreitungen und unterbrochene Versuche werden als <strong>Ergebnis unklar · Übersprungen</strong> gespeichert. Danach geht es mit dem nächsten Eintrag weiter. <strong>Es gibt keine manuelle Ergebnisbestätigung.</strong> Verifizierungsaufgaben werden nicht automatisch gelöst.</p>
+<p>Ein unklares Ergebnis bedeutet weder Erfolg noch Misserfolg; die Anfrage könnte bereits gesendet worden sein. Solche Versuche werden auch in späteren Stapeln nicht automatisch erneut gesendet. Die ursprünglichen Aufzeichnungen bleiben verfügbar.</p>
+<p>Stapel stoppen verhindert den Start weiterer Einträge. Bereits gesendete Anfragen lassen sich nicht zurücknehmen. Bei einer laufenden Anfrage wird zunächst deren Ergebnis gespeichert. Nach einem Browser- oder Hintergrundneustart wird ein möglicherweise bereits gesendeter Eintrag übersprungen; noch nicht gesendete Einträge können fortgesetzt werden. Alte pausierte Stapel werden auf dieses Verhalten umgestellt.</p>
+<h2>Daten, Sicherung und Import</h2>
+<p>Charaktere, geladene Codes, Fortschritt und Einlöseverlauf werden in chrome.storage.local dieses Browserprofils gespeichert. Auch die Sprache wird lokal gespeichert. Spieler-ID, Königreich und Geschenkcode werden nur an das <a href="https://ks-giftcode.centurygame.com/">offizielle Einlösezentrum</a> gesendet. Ein Spielpasswort wird nicht benötigt. Es gibt keinen privaten Server und keinen Übersetzungsdienst.</p>
+<p>Daten sichern lädt eine JSON-Datei mit Charakteren, Codeaufzeichnungen und Einlöseverlauf herunter. Charaktere importieren <strong>führt nur Charakterlisten zusammen</strong>: Vorhandene Kombinationen aus ID und Königreich bleiben erhalten. Verlauf und nicht abgeschlossene Stapel werden nicht wiederhergestellt. Die Verlaufstabelle zeigt die letzten 200 Einträge; die Sicherung enthält den vollständigen Verlauf.</p>
+<p>Beim Entfernen der Erweiterung, Löschen ihres Speichers oder Wechseln des Browserprofils können Aufzeichnungen verloren gehen. Der reine Charakterimport in ein neues Profil stellt den bisherigen Verlauf für automatisches Überspringen nicht wieder her. Behalte beim Aktualisieren die ursprüngliche Erweiterungsinstallation.</p>
+<p>Beispiel für eine Importdatei – ersetze die Beispieldaten:</p>
+<pre><code>
+[{&quot;name&quot;:&quot;Hauptcharakter&quot;,&quot;id&quot;:&quot;123456789&quot;,&quot;kingdom&quot;:&quot;123&quot;,&quot;enabled&quot;:true}]
+
+</code></pre>
+<h2>Fehlerbehebung und Grenzen</h2>
+<ul>
+<li>Ein file://-, origin-null- oder CORS-Fehler in einer älteren Version bedeutet, dass app.html direkt geöffnet wurde. Lade stattdessen die Erweiterung. Deaktiviere keine Browsersicherheitsfunktionen.</li>
+<li>Ist die Quelle nicht lesbar, prüfe ihre Seite und aktualisiere später erneut. Die Website könnte geändert worden sein oder eine Verifizierung verlangen.</li>
+<li>Wird das offizielle Formular nicht gefunden, stelle die Website auf 繁體中文. Nach einer Umgestaltung der Website muss eventuell adapter.js aktualisiert werden.</li>
+<li>Lade nach dem Ersetzen der Dateien die Erweiterung neu und öffne ihren Tool-Tab erneut, damit keine alte Oberfläche weiterverwendet wird.</li>
+</ul>
+<p>Die Erweiterung benötigt lokalen Speicher, Zeitplanung und Skriptzugriff auf die beiden angegebenen Websites. Lokale Simulationen und Oberflächenprüfungen wurden durchgeführt. <strong>Die tatsächliche Zustellung mit einem echten Charakter und gültigen Code sowie ein vollständiger End-to-End-Test der installierten Erweiterung sind noch nicht verifiziert.</strong> Probiere zuerst einen Charakter aus und prüfe dessen Postfach im Spiel.</p>
+<h2>Entwicklerdateien</h2>
+<p>app.html / app.js / style.css bilden die Oberfläche. languages.js enthält lokale Übersetzungen. core.js prüft Daten und verwaltet Aufzeichnungen, background.js führt die Warteschlange aus, adapter.js bedient das offizielle Formular und source.js liest und filtert die Codes. Der Ordner _locales übersetzt den Eintrag in der Erweiterungsliste des Browsers.</p>
+<p>Mit Node.js können Entwickler im Ordner <code>node --test tests/*.mjs</code> ausführen. Die Tests verwenden lokale Beispieldaten und senden keine echten Einlösungen.</p></main><footer class="guide-support"><a href="mailto:ximoc001@gmail.com">Problem melden: ximoc001@gmail.com</a></footer><script src="languages.js"></script><script src="guide.js"></script></body></html>
